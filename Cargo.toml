@@ -12,9 +12,14 @@ anyhow = "1.0.56"
 tokio = { version = "1.17.0", features = ["macros", "rt"] }
 toml = "0.5"
 serde = { version = "1.0" }
-reqwest = { version = "0.11.10" }
+reqwest = { version = "0.11.10", default-features = false }
 clap = { version = "3", features = ["cargo"] }
-cloudflare = "0.9.1"
+cloudflare = { version = "0.9.1", default-features = false }
+
+[features]
+default = ["default-tls"]
+rustls-tls = ["reqwest/rustls-tls", "cloudflare/rustls-tls"]
+default-tls = ["reqwest/default-tls", "cloudflare/default-tls"]
 
 [patch.crates-io]
 cloudflare = { git = "https://github.com/exrook/cloudflare-rs", branch = "patch-1" }
