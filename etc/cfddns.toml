@@ -1,0 +1,3 @@
+token = "<CloudFlare API token>" # required
+interval = 5 # omit or set to 0 to only run once
+ttl = 300 # ttl for dns records, in seconds (optional, if not present defaults to "auto")
